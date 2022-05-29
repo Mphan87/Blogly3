@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+
+<body>
+
+        <h1> {{fname}} {{lname}}</h1>
+
+        <img src="{{imgsrc}}" width="300" height="300">
+
+        <form>
+                <button formaction="/users/{{blogly_id}}/edit" formmethod="GET">Edit</button>
+                <button formaction="/users/{{blogly_id}}/delete" formmethod="POST">Delete</button>
+        </form>
+
+        <div>
+
+
+        </div>
+
+        {% for posts in post %}
+        <li> <a href="/post/{{posts.id}}/edit">{{posts.content}}:{{posts.created_at}}</a>
+                <form method="POST">
+                        <button formaction="/post/{{posts.id}}/delete" formmethod="POST">X
+                        </button>
+                </form>
+                {% endfor %}
+
+                <div>
+
+
+                </div>
+
+
+                <form>
+                        <button formaction="/users/{{blogly_id}}/posts/new" formmethod="GET">Add Post
+                        </button>
+                </form>
+
+                <a href="/users">Back</a>
+
+
+</body>
+
+</html>
